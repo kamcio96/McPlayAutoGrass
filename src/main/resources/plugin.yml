@@ -1,0 +1,9 @@
+main: pl.mcplay.mcplayautograss.McPlayAutoGrass
+name: McPlayAutoGrass
+version: ${project.version}
+author: kamcio96
+commands:
+  autograss:
+    aliases: [ag]
+  autograsslook:
+    aliases: [agl]
