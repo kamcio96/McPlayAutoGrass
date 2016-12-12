@@ -1,5 +1,6 @@
 package pl.mcplay.mcplayautograss;
 
+import org.bukkit.ChatColor;
 import org.bukkit.Location;
 import org.bukkit.Material;
 import org.bukkit.block.Block;
@@ -22,12 +23,12 @@ public class McPlayAutoGrass extends JavaPlugin {
         }
 
         if (!sender.hasPermission("mcplayautograss.cmd")) {
-            sender.sendMessage("§cNie masz uprawnien do tej komendy");
+            sender.sendMessage(ChatColor.RED + "Nie masz uprawnien do tej komendy");
             return true;
         }
 
         if (args.length == 0) {
-            sender.sendMessage("§cUzyj: §7/" + command.getName() + " <radius>");
+            sender.sendMessage(ChatColor.RED + "Uzyj: " + ChatColor.GRAY + "/" + command.getName() + " <radius>");
             return true;
         }
 
@@ -35,7 +36,7 @@ public class McPlayAutoGrass extends JavaPlugin {
         try {
             radius = Integer.parseInt(args[0]);
         } catch (Exception e) {
-            sender.sendMessage("§cTo nie jest liczba!");
+            sender.sendMessage(ChatColor.RED + "To nie jest liczba!");
             return true;
         }
 
@@ -48,7 +49,7 @@ public class McPlayAutoGrass extends JavaPlugin {
             Block block = player.getTargetBlock((Set<Material>) null, 30);
 
             if (block == null) {
-                sender.sendMessage("§cNie wskazujesz bloku");
+                sender.sendMessage(ChatColor.RED + "Nie wskazujesz bloku");
                 return true;
             }
 
@@ -56,7 +57,7 @@ public class McPlayAutoGrass extends JavaPlugin {
         }
 
         int c = parseLocation(loc, radius);
-        sender.sendMessage("§aTrawa wysetowana (" + c + ")");
+        sender.sendMessage(ChatColor.GREEN + "Trawa wysetowana (" + c + ")");
         return true;
     }
 
