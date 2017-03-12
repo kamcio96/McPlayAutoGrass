@@ -40,6 +40,11 @@ public class McPlayAutoGrass extends JavaPlugin {
             return true;
         }
 
+        if (radius > 200) {
+            sender.sendMessage(ChatColor.RED + " Hej hej, nie rozpedzaj sie tak z tym. Chcesz crasha?");
+            return true;
+        }
+
         Player player = (Player) sender;
 
         Location loc;
